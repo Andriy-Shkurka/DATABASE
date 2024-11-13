@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видалення клієнта</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Видалення клієнта</h2>
+
+            <% if (clients.length === 0) { %>
+                <p>Немає клієнтів для видалення.</p>
+            <% } else { %>
+                <form action="/delete-client" method="POST">
+                    <label for="client_id">Виберіть клієнта для видалення:</label>
+                    <select name="client_id" id="client_id" required>
+                        <% clients.forEach(client => { %>
+                            <option value="<%= client.client_id %>">
+                                <%= client.first_name %> <%= client.last_name %> - Телефон: <%= client.phone %> - Email: <%= client.email %>
+                            </option>
+                        <% }); %>
+                    </select>
+                    <button type="submit">Видалити клієнта</button>
+                </form>
+            <% } %>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

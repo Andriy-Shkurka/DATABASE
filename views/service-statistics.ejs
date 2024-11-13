@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика послуг</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Статистика за кількістю виконаних послуг</h2>
+            <% if (serviceStats.length === 0) { %>
+                <p>Немає виконаних послуг для відображення.</p>
+            <% } else { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Послуга</th>
+                            <th>Кількість виконаних замовлень</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% serviceStats.forEach(service => { %>
+                            <tr>
+                                <td><%= service.service_name %></td>
+                                <td><%= service.times_ordered %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } %>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

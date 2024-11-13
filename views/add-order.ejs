@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додавання нового замовлення</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Додавання нового замовлення</h2>
+
+            <form action="/add-order" method="POST">
+                <label for="order_date">Дата замовлення:</label>
+                <input type="date" id="order_date" name="order_date" required><br><br>
+
+                <label for="client_id">ID клієнта:</label>
+                <input type="number" id="client_id" name="client_id" required><br><br>
+
+                <label for="car_id">ID автомобіля:</label>
+                <input type="number" id="car_id" name="car_id" required><br><br>
+
+                <label for="employee_id">ID працівника:</label>
+                <input type="number" id="employee_id" name="employee_id" required><br><br>
+
+                <label for="status">Статус:</label>
+                <input type="text" id="status" name="status" required><br><br>
+
+                <label for="repair_type">Тип ремонту:</label>
+                <input type="text" id="repair_type" name="repair_type" required><br><br>
+
+                <label for="price">Ціна:</label>
+                <input type="number" id="price" name="price" required><br><br>
+
+                <button type="submit">Додати замовлення</button>
+            </form>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Логін</h2>
+        <% if (error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+        <form action="/login" method="POST">
+            <label for="username">Логін</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Вхід</button>
+        </form>
+    </div>
+</body>
+</html>

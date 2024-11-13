@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт по працівниках</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Звіт по працівниках</h2>
+            <table>
+                <tr>
+                    <th>Ім'я працівника</th>
+                    <th>Прізвище працівника</th>
+                    <th>Кількість замовлень</th>
+                </tr>
+                <% employeeOrders.forEach(employee => { %>
+                    <tr>
+                        <td><%= employee.first_name %></td>
+                        <td><%= employee.last_name %></td>
+                        <td><%= employee.total_orders %></td>
+                    </tr>
+                <% }); %>
+            </table>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

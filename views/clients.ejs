@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список клієнтів</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Список клієнтів</h2>
+
+        <% if (clients.length === 0) { %>
+            <p>Немає клієнтів для відображення.</p>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ім'я</th>
+                        <th>Прізвище</th>
+                        <th>Телефон</th>
+                        <th>Електронна пошта</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% clients.forEach(client => { %>
+                        <tr>
+                            <td><%= client.client_id %></td>
+                            <td><%= client.first_name %></td>
+                            <td><%= client.last_name %></td>
+                            <td><%= client.phone %></td>
+                            <td><%= client.email %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+        <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+    </div>
+</body>
+</html>

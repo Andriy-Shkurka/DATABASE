@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клієнти та автомобілі</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Клієнти та їхні автомобілі</h2>
+            <table>
+                <tr>
+                    <th>Ім'я клієнта</th>
+                    <th>Прізвище клієнта</th>
+                    <th>Марка автомобіля</th>
+                    <th>Модель автомобіля</th>
+                    <th>Номерний знак</th>
+                </tr>
+                <% clientsCars.forEach(clientCar => { %>
+                    <tr>
+                        <td><%= clientCar.first_name %></td>
+                        <td><%= clientCar.last_name %></td>
+                        <td><%= clientCar.make %></td>
+                        <td><%= clientCar.model %></td>
+                        <td><%= clientCar.license_plate %></td>
+                    </tr>
+                <% }); %>
+            </table>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

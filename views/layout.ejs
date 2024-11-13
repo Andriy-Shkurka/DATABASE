@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТО - Система Управління</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Ласкаво просимо до Системи Управління СТО (СУСТО)</h2>
+            <div class="menu">
+                <!-- Група 1: Перегляд таблиць -->
+                <h3>Перегляд таблиць</h3>
+                <ul class="menu-group">
+                    <% const viewItems = [
+                        { href: '/employees', text: 'Переглянути працівників' },
+                        { href: '/clients', text: 'Переглянути клієнтів' },
+                        { href: '/orders', text: 'Переглянути всі замовлення' },
+                        { href: '/total-price', text: 'Загальна ціна замовлень' },
+                        { href: '/clients-cars', text: 'Клієнти та автомобілі' }
+                    ]; %>
+
+                    <% viewItems.forEach(item => { %>
+                        <li><a href="<%= item.href %>" class="menu-item"><%= item.text %></a></li>
+                    <% }); %>
+                </ul>
+
+                <!-- Група 2: Звіти та статистика -->
+                <h3>Звіти та статистика</h3>
+                <ul class="menu-group">
+                    <% const reportItems = [
+                        { href: '/employee-orders', text: 'Звіт по працівниках' },
+                        { href: '/client-spending', text: 'Звіт по клієнтах' },
+                        { href: '/service-statistics', text: 'Статистика послуг' }
+                    ]; %>
+
+                    <% reportItems.forEach(item => { %>
+                        <li><a href="<%= item.href %>" class="menu-item"><%= item.text %></a></li>
+                    <% }); %>
+                </ul>
+
+                <!-- Група 3: Додавання -->
+                <h3>Додавання</h3>
+                <ul class="menu-group">
+                    <% const addItems = [
+                        { href: '/add-order', text: 'Додати нове замовлення' },
+                        { href: '/add-client', text: 'Додати клієнта' },
+                        { href: '/add-car', text: 'Додати автомобіль' }
+                    ]; %>
+
+                    <% addItems.forEach(item => { %>
+                        <li><a href="<%= item.href %>" class="menu-item"><%= item.text %></a></li>
+                    <% }); %>
+                </ul>
+
+                <!-- Група 4: Редагування -->
+                <h3>Редагування</h3>
+                <ul class="menu-group">
+                    <% const updateItems = [
+                        { href: '/update-order', text: 'Редагувати замовлення' }
+                    ]; %>
+
+                    <% updateItems.forEach(item => { %>
+                        <li><a href="<%= item.href %>" class="menu-item"><%= item.text %></a></li>
+                    <% }); %>
+                </ul>
+
+                <!-- Група 5: Видалення -->
+                <h3>Видалення</h3>
+                <ul class="menu-group">
+                    <% const deleteItems = [
+                        { href: '/delete-order', text: 'Видалити замовлення' },
+                        { href: '/delete-client', text: 'Видалення клієнта' }
+                    ]; %>
+
+                    <% deleteItems.forEach(item => { %>
+                        <li><a href="<%= item.href %>" class="menu-item"><%= item.text %></a></li>
+                    <% }); %>
+                </ul>
+
+                <!-- Група 6: Вийти -->
+                <h3>Вийти</h3>
+                <ul class="menu-group">
+                    <% const logoutItems = [
+                        { href: '/logout', text: 'Вийти' }
+                    ]; %>
+
+                    <% logoutItems.forEach(item => { %>
+                        <li><a href="<%= item.href %>" class="menu-item"><%= item.text %></a></li>
+                    <% }); %>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видалення замовлення</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-page">
+            <h2>Видалення замовлення</h2>
+
+            <% if (orders.length === 0) { %>
+                <p>Немає замовлень для видалення.</p>
+            <% } else { %>
+                <% orders.forEach(order => { %>
+                    <form action="/delete-order/<%= order.order_id %>" method="POST">
+                        <p>Замовлення ID: <%= order.order_id %> - Клієнт: <%= order.client_name %></p>
+                        <button type="submit">Видалити</button>
+                    </form>
+                <% }); %>
+            <% } %>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

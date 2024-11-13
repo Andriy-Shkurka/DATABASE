@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Звіт по витратах клієнтів</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Звіт по витратах клієнтів</h2>
+            <% if (clientSpending.length === 0) { %>
+                <p>Немає замовлень для відображення.</p>
+            <% } else { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Номер замовлення</th>
+                            <th>Дата замовлення</th>
+                            <th>Послуга</th>
+                            <th>Вартість</th>
+                            <th>Працівник</th>
+                            <th>Клієнт</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% clientSpending.forEach(order => { %>
+                            <tr>
+                                <td><%= order.order_id %></td>
+                                <td><%= order.order_date %></td>
+                                <td><%= order.service_name %></td>
+                                <td><%= order.service_cost %> грн</td>
+                                <td><%= order.employee %></td>
+                                <td><%= order.client_first_name %> <%= order.client_last_name %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } %>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>

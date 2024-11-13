@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перегляд працівників</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <div class="main-page">
+            <h2>Перегляд працівників</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Ім'я</th>
+                    <th>Прізвище</th>
+                    <th>Посада</th>
+                </tr>
+                <% employees.forEach(employee => { %>
+                    <tr>
+                        <td><%= employee.employee_id %></td>
+                        <td><%= employee.first_name %></td>
+                        <td><%= employee.last_name %></td>
+                        <td><%= employee.position %></td>
+                    </tr>
+                <% }); %>
+            </table>
+            <br>
+            <a href="/" class="back-button">Повернутися до меню</a>
+        </div>
+    </div>
+</body>
+</html>
